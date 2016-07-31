@@ -1,0 +1,24 @@
+set up class
+	convert function
+	store output interger
+	output the number
+main
+	create c string
+	get characters from client
+	store in array
+	send array to romanType
+
+romanType
+	public
+		create count
+	private
+	convert array
+		loop array
+		stop at size -1
+			look at character
+				use switch
+					if M,D,C
+						add value to count
+	display roman 
+	display coverted roman
+
