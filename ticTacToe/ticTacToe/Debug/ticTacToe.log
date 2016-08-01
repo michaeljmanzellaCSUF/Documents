@@ -1,3 +1,5 @@
 ﻿  main.cpp
-  ticTacToe.vcxproj -> C:\Users\micha\Documents\Visual Studio 2015\Projects\ticTacToe\Debug\ticTacToe.exe
-  ticTacToe.vcxproj -> C:\Users\micha\Documents\Visual Studio 2015\Projects\ticTacToe\Debug\ticTacToe.pdb (Full PDB)
+c:\users\micha\documents\visual studio 2015\projects\documents\tictactoe\tictactoe\main.cpp(197): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\micha\documents\visual studio 2015\projects\documents\tictactoe\tictactoe\main.cpp(203): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  ticTacToe.vcxproj -> C:\Users\micha\Documents\Visual Studio 2015\Projects\Documents\ticTacToe\Debug\ticTacToe.exe
+  ticTacToe.vcxproj -> C:\Users\micha\Documents\Visual Studio 2015\Projects\Documents\ticTacToe\Debug\ticTacToe.pdb (Full PDB)

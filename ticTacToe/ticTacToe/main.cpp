@@ -10,6 +10,7 @@
 */
 #include <iostream>
 #include <cstdlib> 
+#include <ctime>
 using namespace std;
 
 const int SIZE = 5;
@@ -18,6 +19,10 @@ void makeNumbers(char grid[][SIZE]);
 void getMove(int & row, int & col, char grid[][SIZE], char letter, int used[][SIZE]);
 bool checkWinnder(int & row, int & col, char grid[][SIZE], char letter, int used[][SIZE]);
 void declare(char letter, char grid[][SIZE]);
+int getRandomX();
+int getRandomO();
+void getAutoMove(int & row, int & col, char grid[][SIZE], char letter, int used[][SIZE],int choices[]);
+
 
 
 int main()
@@ -35,8 +40,10 @@ int main()
 							  { '_', '|' , '_' , '|' , '_' },
 							  { '*', '|' , '*' , '|' , '*' } };
 
+	int choices[] = { 0,2,4,0,2,4,0,2,4,0,2,4,0,2,4,0,2,4,0,2,4,0,2,4 };
+
 	
-	
+	/*
 	while (col != 9 && row != 9)
 	{
 		getMove(row, col,grid,x,used);
@@ -53,6 +60,30 @@ int main()
 		}
 		system("CLS");
 	}
+	*/
+	//zero players
+	
+	while (col != 9 && row != 9)
+	{
+		getAutoMove(row, col, grid, x, used,choices);
+		if (checkWinnder(row, col, grid, x, used))
+		{
+			declare(x, grid);
+		}
+		system("CLS");
+
+		getAutoMove(row, col, grid, o, used, choices);
+		if (checkWinnder(row, col, grid, o, used))
+		{
+			declare(o, grid);
+		}
+		system("CLS");
+	}
+	
+	
+	
+	
+	
 	
 	
 	return 0;
@@ -161,4 +192,42 @@ void makeGrid(int & row, int & col, char grid[][SIZE], int used[][SIZE])
 		row += 2;
 	}
 }
+int getRandomX()
+{
+	srand(time(NULL) + 321412);
+	int v1 = rand() % 24;
+	return v1;
+}
+int getRandomO()
+{
+	srand(time(NULL) + 7856786);
+	int v1 = rand() % 24;
+	return v1;
+}
+void getAutoMove(int & row, int & col, char grid[][SIZE], char letter, int used[][SIZE], int choices[])
+{
+	int num = 0;
+	int temp;
+	int temp2;
+	
+	while (num == 0)
+	{
+		makeNumbers(grid);
+		temp = getRandomX();
+		row = choices[temp];
+		cout << "Enter row: " << row << endl;
+		temp2 = getRandomO();
+		col = choices[temp2];
+		cout << "Enter col: " << col << endl;
 
+		if (used[row][col] == 1)
+		{
+			system("CLS");
+		}
+		else
+			num = 1;
+	}
+
+	grid[row][col] = letter;
+	used[row][col] = 1;
+}
